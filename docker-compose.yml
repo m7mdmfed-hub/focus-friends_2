@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: focus-friends-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: focus
+      POSTGRES_PASSWORD: focus
+      POSTGRES_DB: focus_friends
+    ports:
+      - "5432:5432"
+    volumes:
+      - focus_pg_data:/var/lib/postgresql/data
+
+volumes:
+  focus_pg_data:
